@@ -2,6 +2,7 @@
     <wb-module deploy-name="lsn_surveypark">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
         <property name="context-root" value="lsn_surveypark"/>
         <property name="java-output-path" value="/lsn_surveypark/build/classes"/>
     </wb-module>
