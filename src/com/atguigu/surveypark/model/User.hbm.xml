@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-28 22:25:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.atguigu.surveypark.model">
+    <class name="User" table="users">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="email" type="java.lang.String" length="50">
+            <column name="email" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        <property name="nickName" type="java.lang.String">
+            <column name="nickname" />
+        </property>
+          <property name="regDate" type="timestame" update="false">
+            <column name="regdate" />
+        </property>
+    </class>
+</hibernate-mapping>
