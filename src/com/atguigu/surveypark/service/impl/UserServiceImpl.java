@@ -17,7 +17,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements
 	@Resource(name = "userDao")
 	@Override
 	public void setDao(BaseDao<User> dao) {
-		// TODO Auto-generated method stub
 		super.setDao(dao);
 	}
 
