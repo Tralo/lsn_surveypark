@@ -3,7 +3,14 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+	<!-- 主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 开发者模式 -->
+	<constant name="struts.devMode" value="true" />
 	<package name="surveryparkPkg" extends="struts-default" namespace="/">
-	
+	<!-- regAction -->
+		<action name="RegAction_*" class="regAction" method="{1}">
+			<result name="regPage">/reg.jsp</result>
+		</action>
 	</package>
 </struts>
