@@ -20,5 +20,8 @@
 			<result name="input">/index.jsp</result>
 			<result name="success">/index.jsp</result>
 		</action>
+		<action name="SurveyAction_*" class="surveyAction" method="{1}">
+			<result name="mySurveyListPage">/mySurveyList.jsp</result>
+		</action>
 	</package>
 </struts>
