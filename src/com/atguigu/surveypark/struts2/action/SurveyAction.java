@@ -43,6 +43,14 @@ public class SurveyAction extends BaseAction<Survey> implements SessionAware{
 		this.mySurveys = surveyService.findMySurveys(user);
 		return "mySurveyListPage";
 	}
+	/**
+	 * 新建调查
+	 */
+	public String newSurvey(){
+		User user = (User) sessionMap.get("user");
+		this.model = surveyService.newSurvey(user);
+		return "designSurveyPage";
+	}
 
 	@Override
 	public void setSession(Map<String, Object> arg0) {

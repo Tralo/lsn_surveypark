@@ -12,4 +12,9 @@ public interface SurveyService {
 	 */
 	List<Survey> findMySurveys(User user);
 
+	/**
+	 * 新建调查
+	 */
+	Survey newSurvey(User user);
+
 }

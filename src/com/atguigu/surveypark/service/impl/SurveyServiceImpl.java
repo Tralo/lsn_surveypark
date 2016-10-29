@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.atguigu.surveypark.dao.BaseDao;
+import com.atguigu.surveypark.model.Page;
 import com.atguigu.surveypark.model.Survey;
 import com.atguigu.surveypark.model.User;
 import com.atguigu.surveypark.service.SurveyService;
@@ -18,6 +19,10 @@ public class SurveyServiceImpl implements SurveyService{
 	
 	@Resource
 	private BaseDao<Survey> surveyDao;
+	
+	@Resource
+	private BaseDao<Page> pageDao;
+	
 	/**
 	 * 查询调查集合
 	 */
@@ -25,6 +30,19 @@ public class SurveyServiceImpl implements SurveyService{
 	public List<Survey> findMySurveys(User user) {
 		String hql = "from Survey s where s.user.id = ?";
 		return surveyDao.findEntityByHQL(hql, user.getId());
+	}
+	/**
+	 * 新建调查
+	 */
+	@Override
+	public Survey newSurvey(User user) {
+		Survey s = new Survey();
+		Page p = new Page();
+		p.setSurvey(s);
+		s.getPages().add(p);
+		surveyDao.saveEntity(s);
+		pageDao.saveEntity(p);
+		return s;
 	}
 	
 }
