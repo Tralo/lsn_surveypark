@@ -38,6 +38,9 @@ public class SurveyServiceImpl implements SurveyService{
 	public Survey newSurvey(User user) {
 		Survey s = new Survey();
 		Page p = new Page();
+		
+		//设置关联关系
+		s.setUser(user);
 		p.setSurvey(s);
 		s.getPages().add(p);
 		surveyDao.saveEntity(s);
