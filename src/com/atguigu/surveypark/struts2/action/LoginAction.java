@@ -21,8 +21,13 @@ public class LoginAction extends BaseAction<User> {
 	/**
 	 * 到达登录页面
 	 */
-	public void toLoginPage(){
-		
+	public String toLoginPage(){
+		return "loginPage";
+	}
+	
+	
+	public String doLogin(){
+		return "";
 	}
 
 

@@ -8,11 +8,16 @@
 	<!-- 开发者模式 -->
 	<constant name="struts.devMode" value="true" />
 	<package name="surveryparkPkg" extends="struts-default" namespace="/">
-	<!-- regAction -->
+		<!-- regAction -->
 		<action name="RegAction_*" class="regAction" method="{1}">
 			<result name="regPage">/reg.jsp</result>
 			<result name="success">/index.jsp</result>
 			<result name="input">/reg.jsp</result>
+		</action>
+		<!-- loginAction -->
+		<action name="LoginAction_*" class="loginAction" method="{1}">
+			<result name="loginPage">/index.jsp</result>
+			<result name="input">/index.jsp</result>
 		</action>
 	</package>
 </struts>
