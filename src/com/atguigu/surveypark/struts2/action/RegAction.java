@@ -22,7 +22,6 @@ public class RegAction extends BaseAction<User> {
 
 	@Resource
 	private UserService userService;
-	private User model = new User();
 
 	private String confirmPassword;
 
@@ -87,9 +86,6 @@ public class RegAction extends BaseAction<User> {
 		}
 	}
 
-	@Override
-	public User getModel() {
-		return model;
-	}
+	
 
 }
