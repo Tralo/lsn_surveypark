@@ -20,7 +20,7 @@
         <property name="nickName" type="java.lang.String">
             <column name="nickname" />
         </property>
-          <property name="regDate" type="timestame" update="false">
+          <property name="regDate" type="timestamp" update="false">
             <column name="regdate" />
         </property>
     </class>

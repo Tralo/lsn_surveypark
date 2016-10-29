@@ -53,4 +53,9 @@
 			<tx:method name="*" propagation="REQUIRED" isolation="DEFAULT"/>
 		</tx:attributes>
 	</tx:advice>
+	<!-- aop配置 -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* *..*Service.*(..))"/>
+	</aop:config>
+	
 </beans>

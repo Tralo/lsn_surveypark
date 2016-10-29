@@ -129,6 +129,14 @@ public class Question {
 	public void setMatrixSelectOptionArr(String[] matrixSelectOptionArr) {
 		this.matrixSelectOptionArr = matrixSelectOptionArr;
 	}
+	public Page getPage() {
+		return page;
+	}
+	public void setPage(Page page) {
+		this.page = page;
+	}
+	
+	
 	
 	
 	
