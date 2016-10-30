@@ -1,12 +1,13 @@
 package com.atguigu.surveypark.interceptor;
 
 import com.atguigu.surveypark.model.User;
+import com.atguigu.surveypark.struts2.UserAware;
 import com.atguigu.surveypark.struts2.action.BaseAction;
 import com.atguigu.surveypark.struts2.action.LoginAction;
 import com.atguigu.surveypark.struts2.action.RegAction;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
-
+@SuppressWarnings("rawtypes")
 public class LoginInterceptor implements Interceptor{
 
 	private static final long serialVersionUID = 7175204562267641123L;
@@ -21,6 +22,7 @@ public class LoginInterceptor implements Interceptor{
 		
 	}
 
+	
 	@Override
 	public String intercept(ActionInvocation arg0) throws Exception {
 		BaseAction action = (BaseAction) arg0.getAction();
@@ -34,6 +36,9 @@ public class LoginInterceptor implements Interceptor{
 				return "login";
 			} else {
 				//放行
+				if(action instanceof UserAware){
+					((UserAware)action).setUser(user);
+				}
 				return arg0.invoke();
 			}
 		}

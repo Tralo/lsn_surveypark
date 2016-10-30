@@ -12,13 +12,14 @@ import org.springframework.stereotype.Controller;
 import com.atguigu.surveypark.model.Survey;
 import com.atguigu.surveypark.model.User;
 import com.atguigu.surveypark.service.SurveyService;
+import com.atguigu.surveypark.struts2.UserAware;
 
 /**
  *	SurveyAction
  */
 @Controller
 @Scope("prototype")
-public class SurveyAction extends BaseAction<Survey> implements SessionAware{
+public class SurveyAction extends BaseAction<Survey> implements UserAware{
 	
 	private static final long serialVersionUID = -4566933269660204230L;
 
@@ -26,9 +27,9 @@ public class SurveyAction extends BaseAction<Survey> implements SessionAware{
 	@Resource
 	private SurveyService surveyService;
 	
+	private User user;
+	
 	private List<Survey> mySurveys;
-	//接收sessionMap
-	private Map<String,Object> sessionMap;
 	
 	public List<Survey> getMySurveys() {
 		return mySurveys;
@@ -39,7 +40,6 @@ public class SurveyAction extends BaseAction<Survey> implements SessionAware{
 	}
 
 	public String mySurveys(){
-		User user = (User) sessionMap.get("user");
 		this.mySurveys = surveyService.findMySurveys(user);
 		return "mySurveyListPage";
 	}
@@ -47,14 +47,14 @@ public class SurveyAction extends BaseAction<Survey> implements SessionAware{
 	 * 新建调查
 	 */
 	public String newSurvey(){
-		User user = (User) sessionMap.get("user");
 		this.model = surveyService.newSurvey(user);
 		return "designSurveyPage";
 	}
 
+
 	@Override
-	public void setSession(Map<String, Object> arg0) {
-		this.sessionMap = arg0;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
