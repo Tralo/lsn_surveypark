@@ -79,6 +79,8 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 	 */
 	public String updateSurvey(){
 		this.sid = model.getId();
+		//保持关联关系
+		this.model.setUser(user);
 		surveyService.updateSurvey(model);
 		return "designSurveyAction";
 	}
