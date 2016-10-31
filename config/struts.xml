@@ -47,6 +47,7 @@
 		<action name="SurveyAction_*" class="surveyAction" method="{1}">
 			<result name="mySurveyListPage">/mySurveyList.jsp</result>
 			<result name="designSurveyPage">/designSurvey.jsp</result>
+			<result name="editSurveyPage">/editSurvey.jsp</result>
 		</action>
 	</package>
 </struts>

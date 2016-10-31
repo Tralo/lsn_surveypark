@@ -66,8 +66,11 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 		this.model = surveyService.getSurveyWithChildren(sid);
 		return "designSurveyPage";
 	}
-	
 
+	public String editSurvey(){
+		this.model = surveyService.getSurvey(sid);
+		return "editSurveyPage";
+	}
 
 	@Override
 	public void setUser(User user) {
