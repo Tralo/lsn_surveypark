@@ -18,8 +18,12 @@ public interface SurveyService {
 	Survey newSurvey(User user);
 
 	/**
-	 * 按照id查询id
+	 * 按照id查询Survey
 	 */
 	Survey getSurvey(Integer id);
+	/**
+	 * 按照id查询Survey,同时携带所有的孩子
+	 */
+	Survey getSurveyWithChildren(Integer sid);
 
 }

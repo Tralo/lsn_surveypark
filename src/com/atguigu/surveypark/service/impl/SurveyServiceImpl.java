@@ -55,10 +55,17 @@ public class SurveyServiceImpl implements SurveyService{
 	@Override
 	public Survey getSurvey(Integer id) {
 		Survey s = surveyDao.getEntity(id);
-		System.out.println(s.toString());
-		Iterator<Page> pages = s.getPages().iterator();
-		if(pages.hasNext()){
-			pages.next().getQuestions().iterator();
+		return s;
+	}
+	/**
+	 * 按照id查询Survey,同时携带所有的孩子
+	 */
+	@Override
+	public Survey getSurveyWithChildren(Integer id) {
+		Survey s = surveyDao.getEntity(id);
+		//强行初始化pages和questions集合
+		for(Page p : s.getPages()){
+			p.getQuestions().size();
 		}
 		
 		return s;
