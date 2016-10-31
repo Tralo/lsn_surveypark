@@ -1,5 +1,6 @@
 package com.atguigu.surveypark.service.impl;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -45,6 +46,21 @@ public class SurveyServiceImpl implements SurveyService{
 		s.getPages().add(p);
 		surveyDao.saveEntity(s);
 		pageDao.saveEntity(p);
+		return s;
+	}
+	
+	/**
+	 * 按照id查询id
+	 */
+	@Override
+	public Survey getSurvey(Integer id) {
+		Survey s = surveyDao.getEntity(id);
+		System.out.println(s.toString());
+		Iterator<Page> pages = s.getPages().iterator();
+		if(pages.hasNext()){
+			pages.next().getQuestions().iterator();
+		}
+		
 		return s;
 	}
 	

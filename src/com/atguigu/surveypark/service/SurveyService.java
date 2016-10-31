@@ -17,4 +17,9 @@ public interface SurveyService {
 	 */
 	Survey newSurvey(User user);
 
+	/**
+	 * 按照id查询id
+	 */
+	Survey getSurvey(Integer id);
+
 }

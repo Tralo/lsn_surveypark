@@ -99,7 +99,10 @@ public class Survey {
 	public String toString() {
 		return "Survey [id=" + id + ", title=" + title + ", preText=" + preText
 				+ ", nextText=" + nextText + ", exitText=" + exitText
-				+ ", doneText=" + doneText + ", createTime=" + createTime + "]";
+				+ ", doneText=" + doneText + ", createTime=" + createTime
+				+ ", user=" + user + ", pages=" + pages + "]";
 	}
+
+	
 
 }

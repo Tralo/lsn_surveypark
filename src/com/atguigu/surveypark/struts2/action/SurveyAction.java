@@ -15,22 +15,32 @@ import com.atguigu.surveypark.service.SurveyService;
 import com.atguigu.surveypark.struts2.UserAware;
 
 /**
- *	SurveyAction
+ * SurveyAction
  */
 @Controller
 @Scope("prototype")
-public class SurveyAction extends BaseAction<Survey> implements UserAware{
-	
+public class SurveyAction extends BaseAction<Survey> implements UserAware {
+
 	private static final long serialVersionUID = -4566933269660204230L;
 
-	//注入SurveyService
+	// 注入SurveyService
 	@Resource
 	private SurveyService surveyService;
-	
+
 	private User user;
-	
+	// 接收sid参数
+	private Integer sid;
+
+	public Integer getSid() {
+		return sid;
+	}
+
+	public void setSid(Integer sid) {
+		this.sid = sid;
+	}
+
 	private List<Survey> mySurveys;
-	
+
 	public List<Survey> getMySurveys() {
 		return mySurveys;
 	}
@@ -39,16 +49,25 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware{
 		this.mySurveys = mySurveys;
 	}
 
-	public String mySurveys(){
+	public String mySurveys() {
 		this.mySurveys = surveyService.findMySurveys(user);
 		return "mySurveyListPage";
 	}
+
 	/**
 	 * 新建调查
 	 */
-	public String newSurvey(){
+	public String newSurvey() {
 		this.model = surveyService.newSurvey(user);
 		return "designSurveyPage";
+	}
+
+	public String designSurvey() {
+		return "designSurveyPage";
+	}
+	
+	public void prepareDesignSurvey() {
+		this.model = surveyService.getSurvey(sid);
 	}
 
 
@@ -56,5 +75,6 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware{
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	
 }
