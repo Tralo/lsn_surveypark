@@ -1,0 +1,14 @@
+1.手动压栈
+	缺点:1. 耦合读高，  2.不退家直接操作vs   3.栈中的模型对象过多
+	valueStack.push(newModel);
+2.通过手动将新模型的属性全部赋值给旧模型.
+	性能比较差
+	oldModel.setXxx(newModel.getXxx());
+	...
+3.使用paramsPrepareParamsStack + preparable 拦截器配合使用
+	prepare拦截器先执行，先为model赋值,后调用modelDriven,在栈顶压入的model是新模型，但是
+	需要主要在prepare拦截器还要进行传递参数，defaultstack在prepare不能完成传参数,因此可以改换成paramsPrepareParamsStack来达到此目的.
+
+
+
+
