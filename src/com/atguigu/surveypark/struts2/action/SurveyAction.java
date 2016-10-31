@@ -67,9 +67,20 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 		return "designSurveyPage";
 	}
 
+	/**
+	 * 跳转编辑调查页面
+	 */
 	public String editSurvey(){
 		this.model = surveyService.getSurvey(sid);
 		return "editSurveyPage";
+	}
+	/**
+	 * 更新调查
+	 */
+	public String updateSurvey(){
+		this.sid = model.getId();
+		surveyService.updateSurvey(model);
+		return "designSurveyAction";
 	}
 
 	@Override

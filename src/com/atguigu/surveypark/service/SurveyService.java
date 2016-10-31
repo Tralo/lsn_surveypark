@@ -26,4 +26,9 @@ public interface SurveyService {
 	 */
 	Survey getSurveyWithChildren(Integer sid);
 
+	/**
+	 * 更新调查
+	 */
+	void updateSurvey(Survey model);
+
 }
