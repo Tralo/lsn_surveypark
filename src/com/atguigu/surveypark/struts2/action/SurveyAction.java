@@ -63,12 +63,10 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 	}
 
 	public String designSurvey() {
+		this.model = surveyService.getSurveyWithChildren(sid);
 		return "designSurveyPage";
 	}
 	
-	public void prepareDesignSurvey() {
-		this.model = surveyService.getSurveyWithChildren(sid);
-	}
 
 
 	@Override

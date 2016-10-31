@@ -62,12 +62,12 @@ public class SurveyServiceImpl implements SurveyService{
 	 */
 	@Override
 	public Survey getSurveyWithChildren(Integer id) {
-		Survey s = surveyDao.getEntity(id);
+//		Survey s = surveyDao.getEntity(id);
+		Survey s = this.getSurvey(id);//高内聚低耦合，推荐这样写
 		//强行初始化pages和questions集合
 		for(Page p : s.getPages()){
 			p.getQuestions().size();
 		}
-		
 		return s;
 	}
 	

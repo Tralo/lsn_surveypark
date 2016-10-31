@@ -17,7 +17,9 @@
 			<!-- 定义拦截器栈 -->
 			<interceptor-stack name="surveryparkStack">
 				<interceptor-ref name="loginInterceptor" />
-				<interceptor-ref name="paramsPrepareParamsStack" />
+				<interceptor-ref name="defaultStack">
+					<param name="modelDriven.refreshModelBeforeResult">true</param>
+				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
 		<!-- 定义默认栈 -->
