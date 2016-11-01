@@ -31,5 +31,10 @@ public class QuestionAction extends BaseAction<Question> {
 	public String toSelectQuestionType(){
 		return "selectQuestionTypePage";
 	}
-
+	/**
+	 * 到达设计问题页面
+	 */
+	public String toDesignQuestionPage(){
+		return "" + model.getQuestionType();
+	}
 }
