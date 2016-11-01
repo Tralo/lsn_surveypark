@@ -9,7 +9,6 @@
 	<constant name="struts.devMode" value="true" />
 	<package name="surveryparkPkg" extends="struts-default"
 		namespace="/">
-
 		<interceptors>
 			<!-- 注册登录拦截器 -->
 			<interceptor name="loginInterceptor"
@@ -44,6 +43,7 @@
 			<result name="input">/index.jsp</result>
 			<result name="success">/index.jsp</result>
 		</action>
+		<!-- SurveyAction -->
 		<action name="SurveyAction_*" class="surveyAction" method="{1}">
 			<result name="mySurveyListPage">/mySurveyList.jsp</result>
 			<result name="designSurveyPage">/designSurvey.jsp</result>
@@ -53,6 +53,10 @@
 				<param name="actionName">SurveyAction_designSurvey</param>
 				<param name="sid">${sid}</param>
 			</result>
+		</action>
+		<!-- PageAction -->
+		<action name="PageAction_*" class="pageAction" method="{1}">
+			<result name="addPagePage">/editPage.jsp</result>
 		</action>
 	</package>
 </struts>
