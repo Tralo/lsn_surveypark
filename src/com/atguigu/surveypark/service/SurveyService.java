@@ -42,4 +42,5 @@ public interface SurveyService {
 	 */
 	Page getPage(Integer pid);
 
+
 }

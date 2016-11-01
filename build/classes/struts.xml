@@ -59,5 +59,9 @@
 			<result name="addPagePage">/editPage.jsp</result>
 			<result name="editPagePage">/editPage.jsp</result>
 		</action>
+		<!-- QuestionAction -->
+		<action name="QuestionAction_*" class="questionAction" method="{1}">
+			<result name="selectQuestionTypePage">/selectQuestionType.jsp</result>
+		</action>
 	</package>
 </struts>
