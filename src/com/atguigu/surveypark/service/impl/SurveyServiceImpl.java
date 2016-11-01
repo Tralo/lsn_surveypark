@@ -77,5 +77,12 @@ public class SurveyServiceImpl implements SurveyService{
 	public void updateSurvey(Survey model) {
 		surveyDao.updateEntity(model);
 	}
+	/**
+	 * 保存或更新页面
+	 */
+	@Override
+	public void saveOrUpdatePage(Page model) {
+		pageDao.saveOrUpdateEntity(model);
+	}
 	
 }

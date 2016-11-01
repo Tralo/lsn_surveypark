@@ -2,6 +2,7 @@ package com.atguigu.surveypark.service;
 
 import java.util.List;
 
+import com.atguigu.surveypark.model.Page;
 import com.atguigu.surveypark.model.Survey;
 import com.atguigu.surveypark.model.User;
 
@@ -30,5 +31,10 @@ public interface SurveyService {
 	 * 更新调查
 	 */
 	void updateSurvey(Survey model);
+
+	/**
+	 * 保存或更新页面
+	 */
+	void saveOrUpdatePage(Page model);
 
 }
