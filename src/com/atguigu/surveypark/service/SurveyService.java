@@ -37,4 +37,9 @@ public interface SurveyService {
 	 */
 	void saveOrUpdatePage(Page model);
 
+	/**
+	 * 按照id查询页面
+	 */
+	Page getPage(Integer pid);
+
 }

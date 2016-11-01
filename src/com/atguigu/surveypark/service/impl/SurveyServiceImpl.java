@@ -84,5 +84,9 @@ public class SurveyServiceImpl implements SurveyService{
 	public void saveOrUpdatePage(Page model) {
 		pageDao.saveOrUpdateEntity(model);
 	}
+	@Override
+	public Page getPage(Integer pid) {
+		return pageDao.getEntity(pid);
+	}
 	
 }

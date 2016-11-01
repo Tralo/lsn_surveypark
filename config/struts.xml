@@ -57,6 +57,7 @@
 		<!-- PageAction -->
 		<action name="PageAction_*" class="pageAction" method="{1}">
 			<result name="addPagePage">/editPage.jsp</result>
+			<result name="editPagePage">/editPage.jsp</result>
 		</action>
 	</package>
 </struts>
