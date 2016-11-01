@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.atguigu.surveypark.dao.BaseDao;
 import com.atguigu.surveypark.model.Page;
+import com.atguigu.surveypark.model.Question;
 import com.atguigu.surveypark.model.Survey;
 import com.atguigu.surveypark.model.User;
 import com.atguigu.surveypark.service.SurveyService;
@@ -23,6 +24,9 @@ public class SurveyServiceImpl implements SurveyService{
 	
 	@Resource
 	private BaseDao<Page> pageDao;
+	
+	@Resource
+	private BaseDao<Question> questionDao;
 	
 	/**
 	 * 查询调查集合
@@ -87,6 +91,14 @@ public class SurveyServiceImpl implements SurveyService{
 	@Override
 	public Page getPage(Integer pid) {
 		return pageDao.getEntity(pid);
+	}
+	/**
+	 * 保存或者更新问题
+	 */
+	@Override
+	public void saveOrUpdateQuestion(Question model) {
+		questionDao.saveOrUpdateEntity(model);
+		
 	}
 	
 }

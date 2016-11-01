@@ -3,6 +3,7 @@ package com.atguigu.surveypark.service;
 import java.util.List;
 
 import com.atguigu.surveypark.model.Page;
+import com.atguigu.surveypark.model.Question;
 import com.atguigu.surveypark.model.Survey;
 import com.atguigu.surveypark.model.User;
 
@@ -41,6 +42,11 @@ public interface SurveyService {
 	 * 按照id查询页面
 	 */
 	Page getPage(Integer pid);
+
+	/**
+	 * 保存或者更新问题
+	 */
+	void saveOrUpdateQuestion(Question model);
 
 
 }
