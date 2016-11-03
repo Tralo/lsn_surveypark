@@ -60,6 +60,12 @@ public class QuestionAction extends BaseAction<Question> {
 		surveyService.saveOrUpdateQuestion(model);
 		return "designSurveyAction";
 	}
+	
+	public String editQuestion(){
+		model = surveyService.getQuestion(qid);
+		return "" + model.getQuestionType();
+	}
+	
 	/**
 	 *  删除问题
 	 */

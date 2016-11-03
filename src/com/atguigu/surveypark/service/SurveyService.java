@@ -63,5 +63,10 @@ public interface SurveyService {
 	 */
 	void deleteSurvey(Integer sid);
 
+	/**
+	 * 获取问题
+	 */
+	Question getQuestion(Integer qid);
+
 
 }

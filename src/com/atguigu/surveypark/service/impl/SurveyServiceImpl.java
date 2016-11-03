@@ -148,5 +148,12 @@ public class SurveyServiceImpl implements SurveyService{
 		hql = "delete from Survey s where s.id = ?";
 		surveyDao.batchEntityByHQL(hql, sid);
 	}
+	/**
+	 * 获取问题
+	 */
+	@Override
+	public Question getQuestion(Integer qid) {
+		return questionDao.getEntity(qid);
+	}
 	
 }

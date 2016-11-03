@@ -92,6 +92,8 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 		surveyService.deleteSurvey(sid);
 		return "findMySurveysAction";
 	}
+	
+	
 
 	@Override
 	public void setUser(User user) {
