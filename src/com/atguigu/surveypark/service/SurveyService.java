@@ -58,5 +58,10 @@ public interface SurveyService {
 	 */
 	void deletePage(Integer pid);
 
+	/**
+	 * 删除调查，同时删除页面，问题和答案
+	 */
+	void deleteSurvey(Integer sid);
+
 
 }

@@ -67,4 +67,5 @@ public class QuestionAction extends BaseAction<Question> {
 		surveyService.deleteQuestion(qid);
 		return "designSurveyAction";
 	}
+	
 }

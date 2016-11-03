@@ -129,5 +129,24 @@ public class SurveyServiceImpl implements SurveyService{
 		hql = "delete from Page p where p.id = ?";
 		pageDao.batchEntityByHQL(hql, pid);
 	}
+	/**
+	 * 删除调查，同时删除页面，问题和答案
+	 */
+	@Override
+	public void deleteSurvey(Integer sid) {
+		//delete answer
+		String hql = "delete from Answer a where a.surveyId = ?";
+		answerDao.batchEntityByHQL(hql, sid);
+		//delete question
+		hql = "delete from Question q where q.page.id in (select p.id from Page p where p.survey.id = ?)";
+		questionDao.batchEntityByHQL(hql, sid);
+		//delete page
+		hql = "delete from Page p where p.survey.id = ?";
+		pageDao.batchEntityByHQL(hql, sid);
+		
+		//delete sid
+		hql = "delete from Survey s where s.id = ?";
+		surveyDao.batchEntityByHQL(hql, sid);
+	}
 	
 }
