@@ -114,5 +114,20 @@ public class SurveyServiceImpl implements SurveyService{
 		questionDao.batchEntityByHQL(hql, qid);
 		
 	}
+	/**
+	 * 删除页面同时删除问题和答案
+	 */
+	@Override
+	public void deletePage(Integer pid) {
+		//delete answer
+		String hql = "delete from Answer a where a.questionId in (select q.id from Question q where q.page.id = ?)";
+		answerDao.batchEntityByHQL(hql, pid);
+		//delete questions
+		hql = "delete from Question q where q.page.id = ?";
+		questionDao.batchEntityByHQL(hql, pid);
+		//删除页面
+		hql = "delete from Page p where p.id = ?";
+		pageDao.batchEntityByHQL(hql, pid);
+	}
 	
 }
