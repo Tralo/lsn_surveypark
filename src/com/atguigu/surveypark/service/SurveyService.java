@@ -48,5 +48,10 @@ public interface SurveyService {
 	 */
 	void saveOrUpdateQuestion(Question model);
 
+	/**
+	 * 删除问题,同时山南出答案
+	 */
+	void deleteQuestion(Integer qid);
+
 
 }

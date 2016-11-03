@@ -19,6 +19,13 @@ public class QuestionAction extends BaseAction<Question> {
 	
 	private Integer sid;
 	private Integer pid;
+	private Integer qid;
+	public Integer getQid() {
+		return qid;
+	}
+	public void setQid(Integer qid) {
+		this.qid = qid;
+	}
 	public Integer getSid() {
 		return sid;
 	}
@@ -51,6 +58,13 @@ public class QuestionAction extends BaseAction<Question> {
 		page.setId(pid);
 		model.setPage(page);
 		surveyService.saveOrUpdateQuestion(model);
+		return "designSurveyAction";
+	}
+	/**
+	 *  删除问题
+	 */
+	public String deleteQuestion(){
+		surveyService.deleteQuestion(qid);
 		return "designSurveyAction";
 	}
 }

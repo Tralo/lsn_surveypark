@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.atguigu.surveypark.dao.BaseDao;
+import com.atguigu.surveypark.model.Answer;
 import com.atguigu.surveypark.model.Page;
 import com.atguigu.surveypark.model.Question;
 import com.atguigu.surveypark.model.Survey;
@@ -24,10 +25,10 @@ public class SurveyServiceImpl implements SurveyService{
 	
 	@Resource
 	private BaseDao<Page> pageDao;
-	
 	@Resource
 	private BaseDao<Question> questionDao;
-	
+	@Resource
+	private BaseDao<Answer> answerDao;
 	/**
 	 * 查询调查集合
 	 */
@@ -98,6 +99,19 @@ public class SurveyServiceImpl implements SurveyService{
 	@Override
 	public void saveOrUpdateQuestion(Question model) {
 		questionDao.saveOrUpdateEntity(model);
+		
+	}
+	/**
+	 * 删除问题,同时山南出答案
+	 */
+	@Override
+	public void deleteQuestion(Integer qid) {
+		//1.删除answers
+		String hql = "delete from Answer a where a.questionId = ?";
+		answerDao.batchEntityByHQL(hql, qid);
+		//2.删除问题
+		hql = "delete from Question q where q.id = ?";
+		questionDao.batchEntityByHQL(hql, qid);
 		
 	}
 	
