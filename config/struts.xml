@@ -18,6 +18,12 @@
 				<interceptor-ref name="loginInterceptor" />
 				<interceptor-ref name="defaultStack">
 					<param name="modelDriven.refreshModelBeforeResult">true</param>
+					<!-- 文件大小约束 -->
+					<param name="fileUpload.maxinumSize">70000</param>
+					<!-- 文件的扩展名 -->
+					<param name="fileUpload.allowedExtensions">.jpg,.jpeg,.png,.bmp,.gif</param>
+					<!-- 文件的内容类型 -->
+					<param name="fileUpload.allowedTypes">image/jpg,image/jpeg,image/png,image/bmp,image/gif</param>
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
@@ -54,7 +60,8 @@
 			<result name="mySurveyListPage">/mySurveyList.jsp</result>
 			<result name="designSurveyPage">/designSurvey.jsp</result>
 			<result name="editSurveyPage">/editSurvey.jsp</result>
-			<result name="addLoogoPage">/addLogo.jsp</result>
+			<result name="addLogoPage">/addLogo.jsp</result>
+			<result name="input">/addLogo.jsp</result>
 			<result name="findMySurveysAction" type="redirectAction">
 				<param name="namespace">/</param>
 				<param name="actionName">SurveyAction_mySurveys</param>

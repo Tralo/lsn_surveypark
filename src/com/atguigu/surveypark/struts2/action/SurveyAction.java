@@ -115,7 +115,7 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware,Servle
 	 * 到达增加logo的页面
 	 */
 	public String toAddLogoPage(){
-		return "addLoogoPage";
+		return "addLogoPage";
 	}
 	//上传文件
 	private File logoPhoto;
@@ -156,17 +156,35 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware,Servle
 			//文件另存为
 			logoPhoto.renameTo(newFile);
 			//更新路径
-			surveyService.updateLogoPathoPath(sid,"u/pload/" + l + ext);
-			
+			surveyService.updateLogoPathoPath(sid,"/upload/" + l + ext);
 		}
 		//2.更新路径
 		return "designSurveyAction";
 	}
 
+	
+	/**
+	 * 判断图片是否存在
+	 */
+	public boolean logoPhotoExists(){
+		String path = model.getLogoPhotoPath();
+		if(ValidateUtil.isValid(path)){
+			String realPath = sc.getRealPath(path);
+			return new File(realPath).exists();
+		}
+		return false ;
+	}
+	
 	@Override
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public boolean testIsTrue(){
+		System.out.println("testIsTrue");
+		return true;
+	}
+	
 	/**
 	 * 注入ServletContext对象
 	 */
