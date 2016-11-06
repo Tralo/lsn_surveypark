@@ -155,5 +155,13 @@ public class SurveyServiceImpl implements SurveyService{
 	public Question getQuestion(Integer qid) {
 		return questionDao.getEntity(qid);
 	}
+	/**
+	 * 清除调查
+	 */
+	@Override
+	public void clearAnswers(Integer sid) {
+		String hql = "delete from Answer a where a.surveyId = ?";
+		answerDao.batchEntityByHQL(hql, sid);
+	}
 	
 }

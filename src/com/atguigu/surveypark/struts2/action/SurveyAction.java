@@ -93,6 +93,13 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 		return "findMySurveysAction";
 	}
 	
+	/**
+	 * 清除调查
+	 */
+	public String clearAnswers(){
+		surveyService.clearAnswers(sid);
+		return "findMySurveysAction";
+	}
 	
 
 	@Override
