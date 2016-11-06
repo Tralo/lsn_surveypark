@@ -108,6 +108,12 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 		return "findMySurveysAction";
 	}
 	
+	/**
+	 * 到达增加logo的页面
+	 */
+	public String toAddLogoPage(){
+		return "addLoogoPage";
+	}
 
 	@Override
 	public void setUser(User user) {
