@@ -16,12 +16,23 @@ public class Survey {
 	private String exitText = "推出";
 	private String doneText = "完成";
 	private Date createTime = new Date();
+	private boolean closed = true;//是否关闭
 
 	// 建立从Survey到User之间多对一关联关系
 	private User user;
 
 	// 建立从Survey到Page之间一对多关联关系
 	private Set<Page> pages = new HashSet<Page>();
+
+	
+	
+	public boolean isClosed() {
+		return closed;
+	}
+
+	public void setClosed(boolean closed) {
+		this.closed = closed;
+	}
 
 	public Set<Page> getPages() {
 		return pages;

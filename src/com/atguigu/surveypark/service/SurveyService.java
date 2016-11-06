@@ -73,5 +73,10 @@ public interface SurveyService {
 	 */
 	void clearAnswers(Integer sid);
 
+	/**
+	 * 打开/关闭
+	 */
+	void toggleStatus(Integer sid);
+
 
 }

@@ -100,6 +100,13 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 		surveyService.clearAnswers(sid);
 		return "findMySurveysAction";
 	}
+	/**
+	 * 打开/关闭
+	 */
+	public String toggleStatus(){
+		surveyService.toggleStatus(sid);
+		return "findMySurveysAction";
+	}
 	
 
 	@Override

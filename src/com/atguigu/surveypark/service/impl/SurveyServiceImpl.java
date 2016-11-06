@@ -163,5 +163,15 @@ public class SurveyServiceImpl implements SurveyService{
 		String hql = "delete from Answer a where a.surveyId = ?";
 		answerDao.batchEntityByHQL(hql, sid);
 	}
+	/**
+	 * 打开/关闭
+	 */
+	@Override
+	public void toggleStatus(Integer sid) {
+		Survey s = this.getSurvey(sid);
+		String hql = "update Survey s set s.closed= ? where s.id = ?";
+		surveyDao.batchEntityByHQL(hql, !s.isClosed(),sid);
+		
+	}
 	
 }

@@ -14,6 +14,9 @@
         <property name="preText" type="java.lang.String">
             <column name="pretext" />
         </property>
+        <property name="closed" type="boolean">
+            <column name="closed" />
+        </property>
         <property name="nextText" type="java.lang.String">
             <column name="nexttext" />
         </property>
