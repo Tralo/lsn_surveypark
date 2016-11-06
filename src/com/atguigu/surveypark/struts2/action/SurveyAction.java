@@ -1,11 +1,12 @@
 package com.atguigu.surveypark.struts2.action;
 
+import java.io.File;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 
-import org.apache.struts2.interceptor.SessionAware;
+import org.apache.struts2.util.ServletContextAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -13,13 +14,15 @@ import com.atguigu.surveypark.model.Survey;
 import com.atguigu.surveypark.model.User;
 import com.atguigu.surveypark.service.SurveyService;
 import com.atguigu.surveypark.struts2.UserAware;
+import com.atguigu.surveypark.util.StringUtil;
+import com.atguigu.surveypark.util.ValidateUtil;
 
 /**
  * SurveyAction
  */
 @Controller
 @Scope("prototype")
-public class SurveyAction extends BaseAction<Survey> implements UserAware {
+public class SurveyAction extends BaseAction<Survey> implements UserAware,ServletContextAware {
 
 	private static final long serialVersionUID = -4566933269660204230L;
 
@@ -114,10 +117,62 @@ public class SurveyAction extends BaseAction<Survey> implements UserAware {
 	public String toAddLogoPage(){
 		return "addLoogoPage";
 	}
+	//上传文件
+	private File logoPhoto;
+	//文件名称
+	private String logoPhotoFileName;
+	//接收servletContext对象
+	private ServletContext sc;
+	
+	public File getLogoPhoto() {
+		return logoPhoto;
+	}
+
+	public void setLogoPhoto(File logoPhoto) {
+		this.logoPhoto = logoPhoto;
+	}
+
+	public String getLogoPhotoFileName() {
+		return logoPhotoFileName;
+	}
+
+	public void setLogoPhotoFileName(String logoPhotoFileName) {
+		this.logoPhotoFileName = logoPhotoFileName;
+	}
+
+	/**
+	 * 实现logo的上传
+	 */
+	public String doAddLogo(){
+		//1.实现上传
+		if(ValidateUtil.isValid(logoPhotoFileName)){
+			// /upload文件夹的真实路径
+			String dir = sc.getRealPath("/upload");
+			//扩展名
+			String ext = logoPhotoFileName.substring(logoPhotoFileName.lastIndexOf("."));
+			//纳秒时间爱呢作为文件名
+			long l = System.nanoTime();
+			File newFile = new File(dir,l + ext);
+			//文件另存为
+			logoPhoto.renameTo(newFile);
+			//更新路径
+			surveyService.updateLogoPathoPath(sid,"u/pload/" + l + ext);
+			
+		}
+		//2.更新路径
+		return "designSurveyAction";
+	}
 
 	@Override
 	public void setUser(User user) {
 		this.user = user;
+	}
+	/**
+	 * 注入ServletContext对象
+	 */
+	@Override
+	public void setServletContext(ServletContext arg0) {
+		this.sc = arg0;
 	}
 
 	

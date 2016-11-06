@@ -78,5 +78,10 @@ public interface SurveyService {
 	 */
 	void toggleStatus(Integer sid);
 
+	/**
+	 * 更新logo的路径
+	 */
+	void updateLogoPathoPath(Integer sid, String string);
+
 
 }

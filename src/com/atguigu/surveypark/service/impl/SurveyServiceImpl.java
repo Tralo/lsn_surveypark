@@ -173,5 +173,11 @@ public class SurveyServiceImpl implements SurveyService{
 		surveyDao.batchEntityByHQL(hql, !s.isClosed(),sid);
 		
 	}
+	@Override
+	public void updateLogoPathoPath(Integer sid, String uploadPath) {
+		String hql = "update Survey s set s.logoPhotoPath = ? where s.id = ?";
+		surveyDao.batchEntityByHQL(hql, uploadPath,sid);
+		
+	}
 	
 }
